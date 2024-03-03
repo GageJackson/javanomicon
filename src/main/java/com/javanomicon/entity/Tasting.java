@@ -1,9 +1,11 @@
 package com.javanomicon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tastings")
@@ -19,6 +21,12 @@ public class Tasting {
     private Double overallScore;
     @Column(name = "description")
     private String description;
-    @Column(name = "user_id")
-    private Long userId;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tasting")
+    List<TastingFlavor> tastingFlavors;
 }

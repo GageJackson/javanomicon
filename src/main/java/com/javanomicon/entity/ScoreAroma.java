@@ -15,6 +15,8 @@ public class ScoreAroma {
     private Double quality;
     @Column(name = "quantity")
     private Double quantity;
-    @Column(name = "tasting_id")
-    private Long tastingId;
+
+    @OneToOne
+    @JoinColumn(name = "tasting_id", nullable = false)
+    private Tasting tasting;
 }

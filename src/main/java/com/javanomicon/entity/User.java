@@ -3,6 +3,8 @@ package com.javanomicon.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -19,4 +21,7 @@ public class User {
     private String lName;
     @Column(name = "password")
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    List<Tasting> tastings;
 }

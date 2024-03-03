@@ -1,5 +1,6 @@
 package com.javanomicon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,10 +16,19 @@ public class CoffeeDetail {
     private Boolean isSingleOrigin;
     @Column(name = "is_decaf")
     private Boolean isDecaf;
-    @Column(name = "region_id")
-    private Long regionId;
-    @Column(name = "process_id")
-    private Long processId;
-    @Column(name = "coffee_id")
-    private Long coffeeId;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "coffee_region_id", nullable = false)
+    private CoffeeRegion coffeeRegion;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "coffee_process_id", nullable = false)
+    private CoffeeProcess coffeeProcess;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "coffee_id", nullable = false)
+    private Coffee coffee;
 }

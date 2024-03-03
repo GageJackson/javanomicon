@@ -1,9 +1,11 @@
 package com.javanomicon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "coffees")
@@ -17,8 +19,16 @@ public class Coffee {
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "roaster_id")
-    private Long roasterId;
-    @Column(name = "tasting_id")
-    private Long tastingId;
+
+    @OneToOne
+    @JoinColumn(name = "tasting_id", nullable = false)
+    private Tasting tasting;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "coffee")
+    List<CoffeeDetail> coffeeDetails;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "coffee_roaster_id", nullable = false)
+    private CoffeeRoaster coffeeRoaster;
 }
