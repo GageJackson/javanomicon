@@ -4,14 +4,14 @@ class TastingModel {
     overallScore: string;
     description: string;
     tastingFlavors: string[];
-    scoreAcidity: scoreModel;
-    scoreAroma: scoreModel;
-    scoreBalance: scoreModel;
-    scoreBody: scoreModel;
-    scoreFinish: scoreModel;
-    scoreFlavor: scoreModel;
-    scoreRoast: scoreModel;
-    scoreSweetness: scoreModel;
+    scoreAcidity: ScoreModel;
+    scoreAroma: ScoreModel;
+    scoreBalance: ScoreModel;
+    scoreBody: ScoreModel;
+    scoreFinish: ScoreModel;
+    scoreFlavor: ScoreModel;
+    scoreRoast: ScoreModel;
+    scoreSweetness: ScoreModel;
     coffeeDetails: coffeeDetailModel[];
     brewDetails: brewDetailModel;
 
