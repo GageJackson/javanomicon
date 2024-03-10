@@ -1,6 +1,9 @@
 import React from "react";
 import {useEffect, useState} from "react";
-import CoffeeModel from "../../../models/CoffeeModel";
+import TastingModel from "../../models/TastingModel";
+import ScoreModel from "../../models/ScoreModel";
+import BrewDetailModel from "../../models/BrewDetailModel";
+import CoffeeDetailModel from "../../models/CoffeeDetailModel";
 import {SpinnerLoading} from "../../Utils/SpinnerLoading";
 
 export const HomePage = () => {
@@ -21,6 +24,9 @@ export const HomePage = () => {
 
             const responseJson = await response.json();
             const responseData = responseJson._embedded.tastings;
+
+            console.log(responseData);
+
             const loadedTastings: TastingModel[] = [];
 
             for (const key in responseData){

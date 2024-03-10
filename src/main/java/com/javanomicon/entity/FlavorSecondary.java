@@ -16,8 +16,6 @@ public class FlavorSecondary {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "flavor_primary_id")
-    private Long flavorPrimaryId;
 
     @ManyToOne
     @JsonIgnore
