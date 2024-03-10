@@ -1,5 +1,6 @@
 package com.javanomicon.dto;
 
+import com.javanomicon.entity.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,15 +13,15 @@ public class TastingDto {
     private Double overallScore;
     private String description;
     private List<FlavorDto> flavors;
-    private BrewDetailDto brewDetail;
-    private ScoreDto scoreAcidity;
-    private ScoreDto scoreAroma;
-    private ScoreDto scoreBalance;
-    private ScoreDto scoreBody;
-    private ScoreDto scoreFinish;
-    private ScoreDto scoreFlavor;
-    private ScoreDto scoreRoast;
-    private ScoreDto scoreSweetness;
-    private List<CoffeeDetailDto> coffeeDetails;
+    private BrewDetail brewDetail;
+    private ScoreAcidity scoreAcidity;
+    private ScoreAroma scoreAroma;
+    private ScoreBalance scoreBalance;
+    private ScoreBody scoreBody;
+    private ScoreFinish scoreFinish;
+    private ScoreFlavor scoreFlavor;
+    private ScoreRoast scoreRoast;
+    private ScoreSweetness scoreSweetness;
+    private List<CoffeeDetail> coffeeDetails;
 
 }

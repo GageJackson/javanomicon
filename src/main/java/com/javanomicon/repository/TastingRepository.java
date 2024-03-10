@@ -8,4 +8,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 public interface TastingRepository extends JpaRepository<Tasting, Long> {
+    List<Tasting> findByUserId(Long userId);
 }

@@ -1,5 +1,6 @@
 package com.javanomicon.repository;
 
+import com.javanomicon.entity.ScoreBody;
 import com.javanomicon.entity.ScoreFinish;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,5 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 public interface ScoreFinishRepository extends JpaRepository<ScoreFinish, Long> {
+    ScoreFinish findByTastingId(Long tastingId);
 
 }
