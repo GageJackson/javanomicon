@@ -15,7 +15,7 @@ export const HomePage = () => {
     useEffect(() => {
         const fetchTastings = async () => {
             const baseUrl: string = "http://localhost:8080/api/tastings";
-            const url: string = `${baseUrl}?page=0&size=9`;
+            const url: string = `${baseUrl}?page=0&size=4`;
             const response = await fetch(url);
 
             if (!response.ok) {

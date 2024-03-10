@@ -7,7 +7,7 @@ class TastingModel {
     tastingDate: Date;
     overallScore: string;
     description: string;
-    tastingFlavors: string[];
+    tastingFlavors: FlavorModels[];
     scoreAcidity: ScoreModel;
     scoreAroma: ScoreModel;
     scoreBalance: ScoreModel;
@@ -16,7 +16,7 @@ class TastingModel {
     scoreFlavor: ScoreModel;
     scoreRoast: ScoreModel;
     scoreSweetness: ScoreModel;
-    coffeeDetails: CoffeeDetailModel[];
+    coffeeDetails: CoffeeDetailModels[];
     brewDetails: BrewDetailModel;
 
     constructor(
