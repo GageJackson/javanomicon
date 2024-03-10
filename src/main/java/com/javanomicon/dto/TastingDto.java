@@ -1,8 +1,11 @@
 package com.javanomicon.dto;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.util.List;
 
+@Data
 public class TastingDto {
     private Long id;
     private Date tastingDate;

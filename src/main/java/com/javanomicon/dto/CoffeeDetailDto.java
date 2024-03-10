@@ -1,5 +1,8 @@
 package com.javanomicon.dto;
 
+import lombok.Data;
+
+@Data
 public class CoffeeDetailDto {
     private Long id;
     private Boolean isSingleOrigin;
