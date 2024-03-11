@@ -1,7 +1,7 @@
 package com.javanomicon.repository;
 
-import com.javanomicon.entity.ScoreFinish;
 import com.javanomicon.entity.ScoreFlavor;
+import com.javanomicon.entity.Tasting;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +10,7 @@ import java.util.List;
 
 public interface ScoreFlavorRepository extends JpaRepository<ScoreFlavor, Long> {
     ScoreFlavor findByTastingId(Long tastingId);
+    ScoreFlavor findByTasting(Tasting tasting);
+
 
 }

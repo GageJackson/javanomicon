@@ -22,6 +22,8 @@ public class FlavorTertiary {
     @JoinColumn(name = "flavor_secondary_id", nullable = false)
     private FlavorSecondary flavorSecondary;
 
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "flavorTertiary")
+    @JsonIgnore
     List<TastingFlavor> tastingFlavors;
 }

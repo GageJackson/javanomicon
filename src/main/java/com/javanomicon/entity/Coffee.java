@@ -21,6 +21,7 @@ public class Coffee {
     private String description;
 
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "tasting_id", nullable = false)
     private Tasting tasting;
 
@@ -28,7 +29,6 @@ public class Coffee {
     List<CoffeeDetail> coffeeDetails;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "coffee_roaster_id", nullable = false)
     private CoffeeRoaster coffeeRoaster;
 }

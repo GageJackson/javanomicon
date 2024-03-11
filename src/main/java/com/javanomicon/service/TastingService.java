@@ -24,6 +24,9 @@ public class TastingService {
     private ScoreRoastRepository scoreRoastRepository;
     private ScoreSweetnessRepository scoreSweetnessRepository;
     private CoffeeDetailRepository coffeeDetailRepository;
+    private CoffeeRepository coffeeRepository;
+    private TastingFlavorRepository tastingFlavorRepository;
+    private FlavorTertiaryRepository flavorTertiaryRepository;
 
     public TastingService(
         TastingRepository tastingRepository,
@@ -36,7 +39,10 @@ public class TastingService {
         ScoreFlavorRepository scoreFlavorRepository,
         ScoreRoastRepository scoreRoastRepository,
         ScoreSweetnessRepository scoreSweetnessRepository,
-        CoffeeDetailRepository coffeeDetailRepository
+        CoffeeDetailRepository coffeeDetailRepository,
+        CoffeeRepository coffeeRepository,
+        TastingFlavorRepository tastingFlavorRepository,
+        FlavorTertiaryRepository flavorTertiaryRepository
     ) {
         this.tastingRepository = tastingRepository;
         this.brewDetailRepository = brewDetailRepository;
@@ -49,6 +55,9 @@ public class TastingService {
         this.scoreRoastRepository = scoreRoastRepository;
         this.scoreSweetnessRepository = scoreSweetnessRepository;
         this.coffeeDetailRepository = coffeeDetailRepository;
+        this.coffeeRepository = coffeeRepository;
+        this.tastingFlavorRepository = tastingFlavorRepository;
+        this.flavorTertiaryRepository = flavorTertiaryRepository;
     }
 
     public Tasting getTasting (Long tastingId) throws Exception {
@@ -65,40 +74,49 @@ public class TastingService {
 
         for (Tasting tasting : allTastings) {
             TastingDto tastingDto = new TastingDto();
-            Long tastingId = tasting.getId();
-            tastingDto.setId(tastingId);
+            tastingDto.setId(tasting.getId());
             tastingDto.setTastingDate(tasting.getTastingDate());
             tastingDto.setDescription(tasting.getDescription());
             tastingDto.setOverallScore(tasting.getOverallScore());
 
-            ScoreAcidity scoreAcidity = scoreAcidityRepository.findByTastingId(tastingId);
+            ScoreAcidity scoreAcidity = scoreAcidityRepository.findByTasting(tasting);
             tastingDto.setScoreAcidity(scoreAcidity);
 
-            ScoreAroma scoreAroma = scoreAromaRepository.findByTastingId(tastingId);
+            ScoreAroma scoreAroma = scoreAromaRepository.findByTasting(tasting);
             tastingDto.setScoreAroma(scoreAroma);
 
-            ScoreBalance scoreBalance = scoreBalanceRepository.findByTastingId(tastingId);
+            ScoreBalance scoreBalance = scoreBalanceRepository.findByTasting(tasting);
             tastingDto.setScoreBalance(scoreBalance);
 
-            ScoreBody scoreBody = scoreBodyRepository.findByTastingId(tastingId);
+            ScoreBody scoreBody = scoreBodyRepository.findByTasting(tasting);
             tastingDto.setScoreBody(scoreBody);
 
-            ScoreFinish scoreFinish = scoreFinishRepository.findByTastingId(tastingId);
+            ScoreFinish scoreFinish = scoreFinishRepository.findByTasting(tasting);
             tastingDto.setScoreFinish(scoreFinish);
 
-            ScoreFlavor scoreFlavor = scoreFlavorRepository.findByTastingId(tastingId);
+            ScoreFlavor scoreFlavor = scoreFlavorRepository.findByTasting(tasting);
             tastingDto.setScoreFlavor(scoreFlavor);
 
-            ScoreRoast scoreRoast = scoreRoastRepository.findByTastingId(tastingId);
+            ScoreRoast scoreRoast = scoreRoastRepository.findByTasting(tasting);
             tastingDto.setScoreRoast(scoreRoast);
 
-            ScoreSweetness scoreSweetness = scoreSweetnessRepository.findByTastingId(tastingId);
+            ScoreSweetness scoreSweetness = scoreSweetnessRepository.findByTasting(tasting);
             tastingDto.setScoreSweetness(scoreSweetness);
+
+            BrewDetail brewDetail = brewDetailRepository.findByTasting(tasting);
+            tastingDto.setBrewDetail(brewDetail);
+
+            Coffee coffee = coffeeRepository.findByTasting(tasting);
+            tastingDto.setCoffee(coffee);
+
+            List<TastingFlavor> tastingFlavors = tastingFlavorRepository.findByTasting(tasting);
+            List<FlavorTertiary> flavors = new ArrayList<>();
+            for (TastingFlavor tastingFlavor : tastingFlavors) {
+                flavors.add(tastingFlavor.getFlavorTertiary());
+            }
+            tastingDto.setFlavors(flavors);
+            allTastingDtos.add(tastingDto);
         }
-
-
-
         return allTastingDtos;
     }
-
 }

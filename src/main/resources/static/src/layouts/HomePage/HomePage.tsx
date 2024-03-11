@@ -14,8 +14,8 @@ export const HomePage = () => {
 
     useEffect(() => {
         const fetchTastings = async () => {
-            const baseUrl: string = "http://localhost:8080/api/tastings";
-            const url: string = `${baseUrl}?page=0&size=4`;
+            const url: string = "http://localhost:8080/api/tastings/all";
+            //const url: string = `${baseUrl}?page=0&size=4`;
             const response = await fetch(url);
 
             if (!response.ok) {
@@ -23,6 +23,9 @@ export const HomePage = () => {
             }
 
             const responseJson = await response.json();
+
+            console.log(responseJson);
+
             const responseData = responseJson._embedded.tastings;
 
             console.log(responseData);

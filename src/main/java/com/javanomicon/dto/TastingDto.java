@@ -12,7 +12,7 @@ public class TastingDto {
     private Date tastingDate;
     private Double overallScore;
     private String description;
-    private List<FlavorDto> flavors;
+    private List<FlavorTertiary> flavors;
     private BrewDetail brewDetail;
     private ScoreAcidity scoreAcidity;
     private ScoreAroma scoreAroma;
@@ -22,6 +22,6 @@ public class TastingDto {
     private ScoreFlavor scoreFlavor;
     private ScoreRoast scoreRoast;
     private ScoreSweetness scoreSweetness;
-    private List<CoffeeDetail> coffeeDetails;
+    private Coffee coffee;
 
 }

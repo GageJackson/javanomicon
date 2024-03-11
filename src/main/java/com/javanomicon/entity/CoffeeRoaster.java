@@ -1,5 +1,6 @@
 package com.javanomicon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,5 +18,6 @@ public class CoffeeRoaster {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "coffeeRoaster")
+    @JsonIgnore
     List<Coffee> coffees;
 }

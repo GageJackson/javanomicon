@@ -18,12 +18,10 @@ public class CoffeeDetail {
     private Boolean isDecaf;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "coffee_region_id", nullable = false)
     private CoffeeRegion coffeeRegion;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "coffee_process_id", nullable = false)
     private CoffeeProcess coffeeProcess;
 

@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Table(name = "tastings")
+@Table(name = "tasting_flavors")
 @Data
 public class TastingFlavor {
     @Id

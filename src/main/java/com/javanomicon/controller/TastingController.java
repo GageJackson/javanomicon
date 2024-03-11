@@ -20,10 +20,8 @@ public class TastingController {
     }
 
     @GetMapping("/all")
-    public List<TastingDto> getAllTastings (){
-        List<TastingDto> allTastings = new ArrayList<>();
-
-        return allTastings;
+    public List<TastingDto> getAllTastings () throws Exception {
+        return tastingService.getAllTastings(1L);
     }
 
 }

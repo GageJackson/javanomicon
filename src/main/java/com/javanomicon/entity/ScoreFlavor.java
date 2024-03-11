@@ -1,5 +1,6 @@
 package com.javanomicon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,6 +18,7 @@ public class ScoreFlavor {
     private Double quantity;
 
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "tasting_id", nullable = false)
     private Tasting tasting;
 }

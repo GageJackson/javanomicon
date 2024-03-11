@@ -18,10 +18,10 @@ public class CoffeeRegion {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "coffeeRegion")
+    @JsonIgnore
     List<CoffeeDetail> coffeeDetails;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "coffee_country_id", nullable = false)
     private CoffeeCountry coffeeCountry;
 }

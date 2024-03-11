@@ -1,4 +1,5 @@
 import ScoreModel from './ScoreModel';
+import FlavorModel from './FlavorModel';
 import BrewDetailModel from './BrewDetailModel';
 import CoffeeDetailModel from './CoffeeDetailModel';
 
@@ -7,7 +8,7 @@ class TastingModel {
     tastingDate: Date;
     overallScore: string;
     description: string;
-    tastingFlavors: FlavorModels[];
+    tastingFlavors: FlavorModel[];
     scoreAcidity: ScoreModel;
     scoreAroma: ScoreModel;
     scoreBalance: ScoreModel;
@@ -16,7 +17,7 @@ class TastingModel {
     scoreFlavor: ScoreModel;
     scoreRoast: ScoreModel;
     scoreSweetness: ScoreModel;
-    coffeeDetails: CoffeeDetailModels[];
+    coffeeDetails: CoffeeDetailModel[];
     brewDetails: BrewDetailModel;
 
     constructor(
@@ -24,7 +25,7 @@ class TastingModel {
             tastingDate: Date,
             overallScore: string,
             description: string,
-            tastingFlavors: string[],
+            tastingFlavors: FlavorModel[],
             scoreAcidity: ScoreModel,
             scoreAroma: ScoreModel,
             scoreBalance: ScoreModel,
