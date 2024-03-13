@@ -26,29 +26,26 @@ export const HomePage = () => {
 
             console.log(responseJson);
 
-            const responseData = responseJson._embedded.tastings;
-
-            console.log(responseData);
-
+            //const responseData = responseJson._embedded.tastings;
             const loadedTastings: TastingModel[] = [];
 
-            for (const key in responseData){
+            for (const key in responseJson){
                 loadedTastings.push(new TastingModel(
-                    responseData[key].id,
-                    responseData[key].tastingDate,
-                    responseData[key].overallScore,
-                    responseData[key].description,
-                    responseData[key].tastingFlavors,
-                    responseData[key].scoreAcidity,
-                    responseData[key].scoreAroma,
-                    responseData[key].scoreBalance,
-                    responseData[key].scoreBody,
-                    responseData[key].scoreFinish,
-                    responseData[key].scoreFlavor,
-                    responseData[key].scoreRoast,
-                    responseData[key].scoreSweetness,
-                    responseData[key].coffeeDetails,
-                    responseData[key].brewDetails
+                    responseJson[key].id,
+                    responseJson[key].tastingDate,
+                    responseJson[key].overallScore,
+                    responseJson[key].description,
+                    responseJson[key].tastingFlavors,
+                    responseJson[key].scoreAcidity,
+                    responseJson[key].scoreAroma,
+                    responseJson[key].scoreBalance,
+                    responseJson[key].scoreBody,
+                    responseJson[key].scoreFinish,
+                    responseJson[key].scoreFlavor,
+                    responseJson[key].scoreRoast,
+                    responseJson[key].scoreSweetness,
+                    responseJson[key].coffeeDetails,
+                    responseJson[key].brewDetails
                 ));
             }
 
